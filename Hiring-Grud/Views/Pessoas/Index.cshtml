@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Hiring_Crud.Models.Pessoas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Todos os Clientes</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <th>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Endereco)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cidade)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefone)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.Nome }) |
+        @Html.ActionLink("Detalhes", "Details", new { id = item.Nome }) |
+        @Html.ActionLink("Deletar", "Delete", new { id = item.Nome })
+    </td>
+</tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Novo Cliente", "Create")
+</p>
+<style>
+    footer {
+        text-align: center;
+    }
+</style>
